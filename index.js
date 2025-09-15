@@ -1,6 +1,8 @@
 const express =  require('express');
 const app = express();
-const port = 4090;
+// const port = 4090;
+const dotenv = require("dotenv")
+dotenv.config()
 
 let allMusics = [
     {id:1, title: 'Baba', songUrl:'https://youtu.be/zZXPDlyb__w?si=K6t0LMpWwu8chn0B', artist: "Dunsin Oyekan" , genre: 'Gospel' },
@@ -35,6 +37,8 @@ let allMusics = [
 app.get('/music', (req, res) => {
     res.send(allMusics)
 })
+
+const port = process.env.PORT || 4090;
 
 app.listen(port, () => {
     console.log('App has started already');
